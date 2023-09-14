@@ -100,8 +100,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-// Handle GET request to display the edit-post form
-router.get('/edit-post/:id', withAuth, async (req, res) => {
+// Handle GET request to display the edit form
+router.get('/edit/:id', withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
@@ -119,7 +119,7 @@ router.get('/edit-post/:id', withAuth, async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render('edit-post', {
+    res.render('edit', {
       ...post,
       logged_in: true,
     });
