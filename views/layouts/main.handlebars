@@ -4,15 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
-  <!--Link to Materialize CSS Framework-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!--Google Font API-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Play:wght@700&family=Rajdhani:wght@500&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap" rel="stylesheet">
-  <!--Link to CSS Stylesheet-->
+  <title>Tech Blog - Your Source for Tech Insights</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
@@ -20,30 +12,32 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+        <span role="img" aria-label="tech">🔧</span>
+        <a href="/">Tech Blog</a>
+      </h1>
       <nav>
-        <a href="/">Home</a>
-        <a href="/profile">Dashboard</a> |
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <button class="no-button" id="logout">logout</button>
+        <a href="/dashboard">Dashboard</a> |
+        <button id="logout">Logout</button>
+        </form>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a> |
+        <a href="/signup">Signup</a>
         {{/if}}
       </nav>
-    <h1>
-      The Tech Blog
-    </h1>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
     <footer>
-      
+      <!-- Add footer content if needed -->
     </footer>
   </div>
 
-  <!-- Render script for logged in users only -->
+  <!-- Render script for logged-in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
